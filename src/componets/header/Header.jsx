@@ -1,5 +1,6 @@
 import React from 'react';
-import SearchInput from './SearchInput';
+import './header.scss';
+import SearchInput from '../searchInput/SearchInput';
 const Header = () => {
   return (
     <div className='headerContainer'>

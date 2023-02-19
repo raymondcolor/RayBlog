@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import './input.scss'
 
 const SearchInput = () => {
   const [keyword, setKeyword] = useState('');

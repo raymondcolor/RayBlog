@@ -1,0 +1,32 @@
+@import '../../App.scss';
+
+.Input {
+    height: 60px;
+    width: 50vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    input {
+        width: 80%;
+        height: inherit;
+        padding-left: 30px;
+        font-size: 18px;
+        outline: none;
+        border: $TextLight;
+        color: #c0c0c0;
+
+        &::placeholder {
+            color: #c0c0c0;
+        }
+    }
+
+
+    button {
+        text-align: center;
+        width: 20%;
+        height: inherit;
+        border: none;
+        background-color: #d1d0d0;
+    }
+}

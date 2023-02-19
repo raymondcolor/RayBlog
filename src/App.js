@@ -5,7 +5,7 @@ import Error from './Pages/Error';
 import Login from './Pages/Login';
 import SignUp from './Pages/SignUp';
 import ViewBlog from './Pages/ViewBlog';
-import NavBar from './componets/NavBar';
+import NavBar from './componets/navBar/NavBar';
 function App() {
   return (
     <div>
