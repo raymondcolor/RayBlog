@@ -1,18 +1,19 @@
 import React from 'react';
-import './nav.scss'
+import './nav.scss';
+import {Link} from 'react-router-dom';
 
 const NavBar = () => {
   return (
     <div>
       <div className='navContainer'>
         <div className='logo'>
-          <a href='/'>
+          <Link to={'/'}>
             <h1>RayBlog</h1>
-          </a>
+          </Link>
         </div>
         <div className='menu'>
-          <a href='/login'>Login In</a>
-          <a href='/Signup'>Sign Up</a>
+          <Link to={'/login'}>Login In</Link>
+          <Link to={'/Signup'}>Sign Up</Link>
         </div>
       </div>
     </div>

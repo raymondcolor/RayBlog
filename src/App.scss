@@ -10,10 +10,36 @@
 $darkBG:#2D56CE;
 $TextLight: #fff;
 
-@mixin flexRow{
+.notFoundContainer {
+    height: 100vh;
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    .notFound {
+        h1 {
+            font-size: 130px;
+            color: $darkBG;
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        .linkButton{
+            display: flex;
+            justify-content: center;
+            a {
+                background-color: $darkBG;
+                color: $TextLight;
+                padding: 10px;
+                margin-top: 10px;
+                display: inline-block;
+                text-decoration: none;
+                border-radius: 5px;
+                text-align: center;
+            }
+        }
+    }
 }
-
-
-
