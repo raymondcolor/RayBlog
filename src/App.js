@@ -5,9 +5,11 @@ import Error from './Pages/Error';
 import Login from './Pages/Login';
 import SignUp from './Pages/SignUp';
 import ViewBlog from './Pages/ViewBlog';
+import NavBar from './componets/NavBar';
 function App() {
   return (
     <div>
+      <NavBar />
       <Router>
         <Routes>
           <Route path='*' element={<Error />} />

@@ -1,7 +1,15 @@
-import React from "react";
+import React from 'react';
+import BlogSection from '../componets/BlogSection';
+import Header from '../componets/Header';
+
 
 const Home = () => {
-  return <div>Home</div>;
+  return (
+    <div>
+      <Header />
+      <BlogSection/>
+    </div>
+  );
 };
 
 export default Home;
