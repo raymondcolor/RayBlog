@@ -1,10 +1,16 @@
 import React from 'react';
 import Blog from '../blog/Blog';
+import './blogsection.scss';
 
 const BlogSection = () => {
   return (
     <div>
-      <Blog />
+      <div className='blogsContainer'>
+        <Blog />
+        <Blog />
+        <Blog />
+        <Blog />
+      </div>
     </div>
   );
 };

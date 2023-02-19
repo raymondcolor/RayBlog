@@ -1,1 +1,61 @@
-@import '../../App.scss'
+@import '../../App.scss';
+
+.blogContainer {
+    display: flex;
+    flex-direction: column;
+    width: 330px;
+    margin-bottom: 40px;
+
+    .blogImage {
+        width: 350px;
+        height: auto;
+        border-radius: 5px;
+        overflow: hidden;
+        
+
+        img {
+            width: inherit;
+            height: auto;
+        }
+    }
+
+    .blogTittle {
+        h1 {
+            font-size: 22px;
+        }
+    }
+
+    .sampleContent {
+        p {
+            font-size: 14px;
+            color: rgb(82, 82, 82);
+        }
+    }
+
+    .author {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 10px;
+
+        .profile {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+            .pic{
+                height: 40px;
+                width: 40px;
+                background-color: black;
+                border-radius: 50%;
+                overflow: hidden;
+            }
+            span{
+                font-size: 12px;
+                color: rgb(82, 82, 82);
+            }
+        }
+    }
+
+}

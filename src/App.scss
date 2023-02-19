@@ -10,5 +10,10 @@
 $darkBG:#2D56CE;
 $TextLight: #fff;
 
+@mixin flexRow{
+    display: flex;
+    flex-direction: row;
+}
+
 
 
