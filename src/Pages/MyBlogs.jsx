@@ -1,9 +1,10 @@
 import React from 'react';
-import BlogSection from '../componets/blogsection/BlogSection';
-import Header from '../componets/header/Header';
-import NavBar from '../componets/navBar/NavBar';
 import Blog from '../componets/blog/Blog';
-const Home = () => {
+import BlogSection from '../componets/blogsection/BlogSection';
+import NavBar from '../componets/navBar/NavBar';
+import Header from '../componets/myBlogs/Header';
+
+const MyBlogs = () => {
   return (
     <div>
       <NavBar />
@@ -18,4 +19,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default MyBlogs;

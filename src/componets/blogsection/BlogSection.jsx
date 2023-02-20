@@ -1,16 +1,11 @@
 import React from 'react';
-import Blog from '../blog/Blog';
 import './blogsection.scss';
 
-const BlogSection = () => {
+const BlogSection = ({children}) => {
+  //reusable componet for the sections where the blogs are mapped
   return (
     <div>
-      <div className='blogsContainer'>
-        <Blog />
-        <Blog />
-        <Blog />
-        <Blog />
-      </div>
+      <div className='blogsContainer'>{children}</div>
     </div>
   );
 };

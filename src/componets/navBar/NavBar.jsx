@@ -2,14 +2,14 @@ import React, {useContext} from 'react';
 import './nav.scss';
 import {Link, useNavigate} from 'react-router-dom';
 import {AuthContext} from '../../context/AuthContextProvider';
-import Avator from './avator.jpg';
 import {auth} from '../../firebase';
 import {signOut} from 'firebase/auth';
 
 const NavBar = () => {
   const navigate = useNavigate();
   const {currentUser} = useContext(AuthContext);
-  console.log(currentUser);
+
+  //logging out user
   const SignOut = () => {
     signOut(auth)
       .then(() => {
@@ -30,14 +30,11 @@ const NavBar = () => {
         {currentUser ? (
           <div className='menu'>
             <Link to={'/'}>Blog</Link>
-            <Link to={'/blogpost'}>Create Blog</Link>
+            <Link to={'/createblog'}>Create Blog</Link>
+            <Link to={'/myblogs'}>My Blogs</Link>
             <button onClick={SignOut}>log out</button>
             <div className='navProfile'>
-              {currentUser ? (
-                <img src={currentUser.photoURL} alt='' />
-              ) : (
-                <img src={Avator} alt='' />
-              )}
+              <img src={currentUser.photoURL} alt='' />
             </div>
           </div>
         ) : (
