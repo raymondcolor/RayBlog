@@ -28,7 +28,7 @@ function App() {
             element={<CreateBlog setShow={setShow} />}
           />
           <Route path='/myblogs' element={<MyBlogs setShow={setShow} />} />
-          <Route path='/viewblog' element={<ViewBlog setShow={setShow} />} />
+          <Route path='/viewblog' element={<ViewBlog />} />
         </Routes>
       </Router>
     </div>

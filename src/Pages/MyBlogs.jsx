@@ -4,10 +4,10 @@ import BlogSection from '../componets/blogsection/BlogSection';
 import NavBar from '../componets/navBar/NavBar';
 import Header from '../componets/myBlogs/Header';
 
-const MyBlogs = () => {
+const MyBlogs = ({setShow}) => {
   return (
     <div>
-      <NavBar />
+      <NavBar setShow={setShow} />
       <Header />
       <BlogSection>
         <Blog />

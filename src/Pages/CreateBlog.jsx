@@ -1,10 +1,10 @@
 import React from 'react';
 import NavBar from '../componets/navBar/NavBar';
 
-const CreateBlof = () => {
+const CreateBlof = ({setShow}) => {
   return (
     <div>
-      <NavBar />
+      <NavBar setShow={setShow} />
       CreateBlof
     </div>
   );
