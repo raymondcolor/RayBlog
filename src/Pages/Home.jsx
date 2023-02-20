@@ -3,10 +3,10 @@ import BlogSection from '../componets/blogsection/BlogSection';
 import Header from '../componets/header/Header';
 import NavBar from '../componets/navBar/NavBar';
 import Blog from '../componets/blog/Blog';
-const Home = () => {
+const Home = (props) => {
   return (
     <div>
-      <NavBar />
+      <NavBar setShow={props.setShow} />
       <Header />
       <BlogSection>
         <Blog />

@@ -1,24 +1,11 @@
 import React, {useContext} from 'react';
 import './nav.scss';
-import {Link, useNavigate} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import {AuthContext} from '../../context/AuthContextProvider';
-import {auth} from '../../firebase';
-import {signOut} from 'firebase/auth';
 
-const NavBar = () => {
-  const navigate = useNavigate();
+const NavBar = (props) => {
   const {currentUser} = useContext(AuthContext);
 
-  //logging out user
-  const SignOut = () => {
-    signOut(auth)
-      .then(() => {
-        navigate('/');
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  };
   return (
     <div>
       <div className='navContainer'>
@@ -32,7 +19,12 @@ const NavBar = () => {
             <Link to={'/'}>Blog</Link>
             <Link to={'/createblog'}>Create Blog</Link>
             <Link to={'/myblogs'}>My Blogs</Link>
-            <button onClick={SignOut}>log out</button>
+            <button
+              onClick={() => {
+                props.setShow(true);
+              }}>
+              log out
+            </button>
             <div className='navProfile'>
               <img src={currentUser.photoURL} alt='' />
             </div>
