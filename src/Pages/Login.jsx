@@ -1,10 +1,35 @@
 import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import '../componets/login/login.scss';
+import {signInWithEmailAndPassword, signInWithPopup} from 'firebase/auth';
+import {auth, provider} from '../firebase';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
+  //login with email and password
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      navigate('/');
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  //login with google
+  const SignInWithgoogle = () => {
+    try {
+      signInWithPopup(auth, provider).then(() => {
+        navigate('/');
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   return (
     <div className='formContainer'>
@@ -27,7 +52,9 @@ const Login = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button>Log in</button>
+        <button onClick={handleSubmit}>Log in</button>
+        <p>or</p>
+        <button onClick={SignInWithgoogle}>Log in</button>
         <div className='Footer'>
           <p>
             Hvae no account yet?
@@ -36,7 +63,7 @@ const Login = () => {
             </Link>
           </p>
           <p>
-            Return to 
+            Return to
             <Link to={'/'}>
               <span>home</span>
             </Link>

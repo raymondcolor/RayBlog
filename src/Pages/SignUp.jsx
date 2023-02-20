@@ -1,11 +1,59 @@
 import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
+import {auth, storage, db, provider} from '../firebase';
+import {
+  createUserWithEmailAndPassword,
+  updateProfile,
+  signInWithPopup,
+} from 'firebase/auth';
+import {ref, uploadBytesResumable, getDownloadURL} from 'firebase/storage';
+import {doc, setDoc} from 'firebase/firestore';
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
   const [displayName, setDisplayName] = useState('');
   const [file, setFile] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
+  //sign up with email pasword
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const res = await createUserWithEmailAndPassword(auth, email, password);
+      const storageRef = ref(storage, displayName);
+      uploadBytesResumable(storageRef, file).then((snapshot) => {
+        getDownloadURL(snapshot.ref).then(async (downloadURL) => {
+          await updateProfile(res.user, {
+            displayName: displayName,
+            photoURL: downloadURL,
+          });
+          await setDoc(doc(db, 'users', res.user.uid), {
+            uid: res.user.uid,
+            displayName: displayName,
+            email: email,
+            photoURL: downloadURL,
+          });
+          await setDoc(doc(db, 'userChats', res.user.uid), {});
+        });
+      });
+      navigate('/');
+    } catch {
+      console.log('error occured');
+    }
+  };
+
+  //sigup with google
+  const SignInWithgoogle = () => {
+    try {
+      signInWithPopup(auth, provider).then(() => {
+        navigate('/');
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   return (
     <div className='formContainer'>
@@ -33,7 +81,6 @@ const SignUp = () => {
           style={{display: 'none'}}
           type='file'
           id='file'
-          value={file}
           onChange={(e) => setFile(e.target.files[0])}
         />
         <input
@@ -42,7 +89,12 @@ const SignUp = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button>Log in</button>
+        <button onClick={handleSubmit}>Sign Up</button>
+
+        <p>or</p>
+        <button className='' onClick={SignInWithgoogle}>
+          Sign Up with google{' '}
+        </button>
         <div className='Footer'>
           <p>
             Have an account?
