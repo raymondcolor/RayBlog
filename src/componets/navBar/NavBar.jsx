@@ -17,8 +17,8 @@ const NavBar = (props) => {
         {currentUser ? (
           <div className='menu'>
             <Link to={'/'}>Blog</Link>
-            <Link to={'/createblog'}>Create Blog</Link>
             <Link to={'/myblogs'}>My Blogs</Link>
+            <Link to={'/createblog'}>Create Blog</Link>
             <button
               onClick={() => {
                 props.setShow(true);

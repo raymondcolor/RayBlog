@@ -15,7 +15,7 @@ const LogOutModal = ({setShow}) => {
 
   return (
     <div className='logoutModalContainer'>
-      <div className='logoutModal'>
+      <div id='logoutModal'>
         <p>Are you sure you want to log out</p>
         <div className='buttonLogoutModal'>
           <button onClick={() => setShow(false)}>Cancel</button>
