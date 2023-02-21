@@ -63,6 +63,40 @@
       border-radius: 5px;
     }
 
+    .googleBtn {
+      height: 50px;
+      background-color: #4185F4;
+      border: none;
+      color: #ffffff;
+      border-radius: 40px;
+
+      .googleBtnDiv {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        .icon {
+          flex: 15%;
+
+          img {
+            height: 40px;
+            width: 40px;
+            margin-top: 5px;
+          }
+        }
+
+        .googleText {
+          flex: 85%;
+
+          p {}
+        }
+      }
+    }
+
+    p {
+      text-align: center;
+    }
+
     .Footer {
       margin-top: 20px;
 

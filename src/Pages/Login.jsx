@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import '../componets/login/login.scss';
+import googleIcon from '../componets/login/g.jpg';
 import {signInWithEmailAndPassword, signInWithPopup} from 'firebase/auth';
 import {auth, provider} from '../firebase';
 
@@ -52,9 +53,18 @@ const Login = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button onClick={handleSubmit}>Log in</button>
+        <button onClick={handleSubmit}>Login</button>
         <p>or</p>
-        <button onClick={SignInWithgoogle}>Log in</button>
+        <button onClick={SignInWithgoogle} className='googleBtn'>
+        <div className="googleBtnDiv">
+            <div className="icon">
+              <img src={ googleIcon} alt="" />
+            </div>
+            <div className="googleText">
+              <p>Sign in with google</p>
+            </div>
+          </div>
+        </button>
         <div className='Footer'>
           <p>
             Hvae no account yet?

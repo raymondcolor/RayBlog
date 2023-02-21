@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
-import {auth, storage,  provider} from '../firebase';
+import googleIcon from '../componets/login/g.jpg';
+import {auth, storage, provider} from '../firebase';
 import {
   createUserWithEmailAndPassword,
   updateProfile,
   signInWithPopup,
 } from 'firebase/auth';
 import {ref, uploadBytesResumable, getDownloadURL} from 'firebase/storage';
-
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
@@ -85,8 +85,15 @@ const SignUp = () => {
         <button onClick={handleSubmit}>Sign Up</button>
 
         <p>or</p>
-        <button className='' onClick={SignInWithgoogle}>
-          Sign Up with google{' '}
+        <button onClick={SignInWithgoogle} className='googleBtn'>
+          <div className='googleBtnDiv'>
+            <div className='icon'>
+              <img src={googleIcon} alt='' />
+            </div>
+            <div className='googleText'>
+              <p>Sign in with google</p>
+            </div>
+          </div>
         </button>
         <div className='Footer'>
           <p>

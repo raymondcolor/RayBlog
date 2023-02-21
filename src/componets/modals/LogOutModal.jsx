@@ -7,7 +7,9 @@ const LogOutModal = ({setShow}) => {
   //logging out user
   const SignOut = () => {
     signOut(auth)
-      .then(() => {})
+      .then(() => {
+        window.location.pathname = '/';
+      })
       .catch((err) => {
         console.error(err);
       });

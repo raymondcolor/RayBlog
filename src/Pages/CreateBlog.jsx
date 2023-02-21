@@ -1,5 +1,6 @@
 import React, {useState, useContext} from 'react';
 import NavBar from '../componets/navBar/NavBar';
+import {useNavigate} from 'react-router-dom';
 import '../componets/createBlog/createPost.scss';
 import {db, storage} from '../firebase';
 import {ref, uploadBytesResumable, getDownloadURL} from 'firebase/storage';
@@ -7,6 +8,7 @@ import {addDoc, collection, serverTimestamp} from 'firebase/firestore';
 import {AuthContext} from '../context/AuthContextProvider';
 
 const CreateBlof = ({setShow}) => {
+  const navigate = useNavigate();
   const {currentUser} = useContext(AuthContext);
   const [category, setCategory] = useState('');
   const [title, setTitle] = useState('');
@@ -36,6 +38,7 @@ const CreateBlof = ({setShow}) => {
           },
           createdAt: serverTimestamp(),
         });
+        navigate('/myblogs');
       });
     });
   };
