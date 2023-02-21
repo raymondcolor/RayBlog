@@ -7,7 +7,6 @@ const Header = () => {
   return (
     <div className='myBlogsHeader'>
       <div className='headerContent'>
-        <h1>My Blogs</h1>
         <div className='myblogsProfile'>
           <img src={currentUser.photoURL} alt='' />
         </div>

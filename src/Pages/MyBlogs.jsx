@@ -4,22 +4,35 @@ import BlogSection from '../componets/blogsection/BlogSection';
 import NavBar from '../componets/navBar/NavBar';
 import Header from '../componets/myBlogs/Header';
 import {BlogContext} from '../context/BlogContextProvider';
+import {AuthContext} from '../context/AuthContextProvider';
 
 const MyBlogs = ({setShow}) => {
   const {blogList} = useContext(BlogContext);
-  console.log(blogList);
+  const {currentUser} = useContext(AuthContext);
+
+  //filtering blogs that are only related
+  // or where posted by the currentUser / loggedin
+  const currentUserBlogs = blogList.filter(
+    (blog) => blog.authur.id === currentUser.uid,
+  );
+
   return (
     <div>
       <NavBar setShow={setShow} />
       <Header />
       <BlogSection>
-        <Blog
-          authorName=''
-          authorProfile=''
-          title=''
-          sampleText=''
-          datePosted=''
-        />
+        {currentUserBlogs.map((blog) => {
+          return (
+            <Blog
+              authorName={blog.authur.name}
+              authorProfile={blog.authur.photoURL}
+              title={blog.title}
+              sampleText={blog.post}
+              datePosted={blog.createdAt.date}
+              coverImage={blog.downloadURL}
+            />
+          );
+        })}
       </BlogSection>
     </div>
   );
