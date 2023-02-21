@@ -29,7 +29,11 @@ const CreateBlof = ({setShow}) => {
           title,
           downloadURL,
           post,
-          authur: {name: currentUser.displayName, id: currentUser.uid},
+          authur: {
+            name: currentUser.displayName,
+            id: currentUser.uid,
+            photoURL: currentUser.photoURL,
+          },
           createdAt: serverTimestamp(),
         });
       });
