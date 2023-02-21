@@ -1,10 +1,51 @@
-.logoutModalContainer {
+@mixin lBtn {
+    border: none;
+    border-radius: 6px;
+    width: 40%;
+    padding: 7px;
+    cursor: pointer;
+}
 
+.logoutModalContainer {
 
     #logoutModal {
         background-color: #fff;
-        opacity: 1;
+        position: fixed;
+        top: 15vh;
+        right: 5vw;
+        height: auto;
+        padding: 30px;
+        box-shadow: -5px 6px 23px -8px rgba(0, 0, 0, 0.75);
+        -webkit-box-shadow: -5px 6px 23px -8px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: -5px 6px 23px -8px rgba(0, 0, 0, 0.75);
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        z-index: 999;
 
+        .buttonLogoutModal {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 10px;
 
+            .btnCancel {
+                @include lBtn();
+                background-color: #d1d1d1;
+                &:hover{
+                    background-color: #bdbdbd;
+                }
+            }
+
+            .logoutBtn {
+                @include lBtn();
+                background-color: rgb(187, 0, 0);
+                color: #fff;
+                &:hover{
+                    background-color: rgb(236, 29, 29);
+                }
+            }
+        }
     }
 }

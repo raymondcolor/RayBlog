@@ -69,6 +69,7 @@
       border: none;
       color: #ffffff;
       border-radius: 40px;
+      cursor: pointer;
 
       .googleBtnDiv {
         display: flex;
@@ -87,8 +88,6 @@
 
         .googleText {
           flex: 85%;
-
-          p {}
         }
       }
     }

@@ -20,8 +20,8 @@ const LogOutModal = ({setShow}) => {
       <div id='logoutModal'>
         <p>Are you sure you want to log out</p>
         <div className='buttonLogoutModal'>
-          <button onClick={() => setShow(false)}>Cancel</button>
-          <button onClick={SignOut}>Log Out</button>
+          <button onClick={() => setShow(false)} className='btnCancel'>Cancel</button>
+          <button onClick={SignOut} className='logoutBtn'>Log Out</button>
         </div>
       </div>
     </div>
