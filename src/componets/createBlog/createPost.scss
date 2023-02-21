@@ -18,6 +18,19 @@
             flex-direction: column;
             gap: 10px;
 
+            
+           select {
+                height: 50px;
+                width: 100%;
+                padding: 0 20px;
+                outline: none;
+                border-radius: 5px;
+                border: 1px solid;
+
+                &:focus {
+                    border: 2px solid rgb(152, 152, 152);
+                }
+            }
             input {
                 height: 50px;
                 width: 100%;

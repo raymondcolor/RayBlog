@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
-import {auth, storage, db, provider} from '../firebase';
+import {auth, storage,  provider} from '../firebase';
 import {
   createUserWithEmailAndPassword,
   updateProfile,
   signInWithPopup,
 } from 'firebase/auth';
 import {ref, uploadBytesResumable, getDownloadURL} from 'firebase/storage';
-import {doc, setDoc} from 'firebase/firestore';
+
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
@@ -29,13 +29,6 @@ const SignUp = () => {
             displayName: displayName,
             photoURL: downloadURL,
           });
-          await setDoc(doc(db, 'users', res.user.uid), {
-            uid: res.user.uid,
-            displayName: displayName,
-            email: email,
-            photoURL: downloadURL,
-          });
-          await setDoc(doc(db, 'userChats', res.user.uid), {});
         });
       });
       navigate('/');
