@@ -1,31 +1,34 @@
 import React from 'react';
 import './blog.scss';
-import image from './1.png';
 
-const Blog = () => {
+const Blog = ({
+  title,
+  coverImage,
+  sampleText,
+  authorName,
+  authorProfile,
+  datePosted,
+}) => {
   return (
     <div>
       <div className='blogContainer'>
         <div className='blogImage'>
-          <img src={image} alt='' />
+          <img src={coverImage} alt='' />
         </div>
         <div className='blogTittle'>
-          <h1>How To Make A blog Site In 30 minutes</h1>
+          <h1>{title}</h1>
         </div>
         <div className='sampleContent'>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec
-            ex fringilla velit blandit pharetra. Ut massa ex, pretium at est
-          </p>
+          <p>{sampleText}</p>
         </div>
         <div className='author'>
           <div className='profile'>
             <div className='pic'>
-              <img src='' alt='' />
+              <img src={authorProfile} alt='' />
             </div>
-            <span>Raymond</span>
+            <span>{authorName}</span>
           </div>
-          <small>1 day ago</small>
+          <small>{datePosted}</small>
         </div>
       </div>
     </div>

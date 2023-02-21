@@ -13,10 +13,13 @@ const MyBlogs = ({setShow}) => {
       <NavBar setShow={setShow} />
       <Header />
       <BlogSection>
-        <Blog />
-        <Blog />
-        <Blog />
-        <Blog />
+        <Blog
+          authorName=''
+          authorProfile=''
+          title=''
+          sampleText=''
+          datePosted=''
+        />
       </BlogSection>
     </div>
   );
