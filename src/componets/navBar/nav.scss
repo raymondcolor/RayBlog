@@ -17,6 +17,11 @@
     a {
         color: $TextLight;
         text-decoration: none;
+        &:hover{
+            color: rgb(147, 147, 147);
+            font-weight: 600;
+            margin-bottom: -10px;
+        }
     }
 
     .menu {
