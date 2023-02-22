@@ -1,2 +1,53 @@
 @import '../../App.scss';
 
+.viewblogHeader {
+    height: 60vh;
+    background-color: $darkBG;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .headerContent {
+        width: 55vw;
+
+        h1 {
+            text-align: center;
+            color: #fff;
+            font-size: 29px;
+        }
+
+        .auhorDetails {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+
+            .authorImage {
+                height: 50px;
+                width: 50px;
+                border-radius: 50%;
+                overflow: hidden;
+
+
+                img {
+                    height: auto;
+                    width: 100%;
+                    object-fit: cover;
+
+                }
+
+
+            }
+
+            p {
+                color: #fff;
+            }
+
+            span {
+                font-size: 12px;
+                color: #fff;
+            }
+        }
+    }
+}
