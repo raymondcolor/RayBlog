@@ -11,24 +11,39 @@ import MyBlogs from './Pages/MyBlogs';
 import CreateBlog from './Pages/CreateBlog';
 import LogOutModal from './componets/modals/LogOutModal';
 function App() {
+  //state for showing and hinding a logout popu
   const [show, setShow] = useState(false);
+
+  //stste for chaaning button text on submiting data
+  const [isLoading, setIsloading] = useState(false);
   return (
     <div>
       {show ? <LogOutModal setShow={setShow} /> : null}
       <Router>
         <Routes>
-          <Route path='*' element={<PageNotFound />} />
           <Route path='/' element={<Home setShow={setShow} />} />
           <Route element={<ProtectedRoutes />}>
-            <Route path='/login' element={<Login />} />
+            <Route
+              path='/login'
+              element={
+                <Login isLoading={isLoading} setIsloading={setIsloading} />
+              }
+            />
             <Route path='/signup' element={<SignUp />} />
           </Route>
           <Route
             path='/createblog'
-            element={<CreateBlog setShow={setShow} />}
+            element={
+              <CreateBlog
+                setShow={setShow}
+                isLoading={isLoading}
+                setIsloading={setIsloading}
+              />
+            }
           />
           <Route path='/myblogs' element={<MyBlogs setShow={setShow} />} />
-          <Route path='/viewblog' element={<ViewBlog />} />
+          <Route path='/blog' element={<ViewBlog />} />
+          <Route path='*' element={<PageNotFound />} />
         </Routes>
       </Router>
     </div>

@@ -9,11 +9,11 @@ import {AuthContext} from '../context/AuthContextProvider';
 const MyBlogs = ({setShow}) => {
   const {blogList} = useContext(BlogContext);
   const {currentUser} = useContext(AuthContext);
-
+  console.log(blogList);
   //filtering blogs that are only related
   // or where posted by the currentUser / loggedin
   const currentUserBlogs = blogList.filter(
-    (blog) => blog.authur.id === currentUser.uid,
+    (blog) => blog?.authur?.id === currentUser.uid,
   );
 
   return (
@@ -29,15 +29,17 @@ const MyBlogs = ({setShow}) => {
         </div>
       ) : (
         <BlogSection>
-          {currentUserBlogs.map((blog) => {
+          {currentUserBlogs.map((blog,index) => {
             return (
               <Blog
-                authorName={blog.authur.name}
-                authorProfile={blog.authur.photoURL}
-                title={blog.title}
-                sampleText={blog.post}
+                key={index}
+                authorName={blog?.authur?.name}
+                authorProfile={blog?.authur?.photoURL}
+                title={blog?.title}
+                sampleText={blog?.post}
                 // datePosted={blog.createdAt[0]}
-                coverImage={blog.downloadURL}
+                coverImage={blog?.downloadURL}
+                to={`/blog/${blog.id}`}
               />
             );
           })}

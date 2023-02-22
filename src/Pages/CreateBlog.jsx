@@ -7,7 +7,7 @@ import {ref, uploadBytesResumable, getDownloadURL} from 'firebase/storage';
 import {addDoc, collection, serverTimestamp} from 'firebase/firestore';
 import {AuthContext} from '../context/AuthContextProvider';
 
-const CreateBlof = ({setShow}) => {
+const CreateBlof = ({setShow, isloading, setIsloading}) => {
   const navigate = useNavigate();
   const {currentUser} = useContext(AuthContext);
   const [category, setCategory] = useState('');
@@ -38,6 +38,7 @@ const CreateBlof = ({setShow}) => {
           },
           createdAt: serverTimestamp(),
         });
+        setIsloading(true);
         navigate('/myblogs');
       });
     });
@@ -77,7 +78,9 @@ const CreateBlof = ({setShow}) => {
               onChange={(e) => setPost(e.target.value)}></textarea>
           </div>
           <div className='formFooter'>
-            <button onClick={Createblog}>Post</button>
+            <button onClick={Createblog}>
+              {!isloading ? 'Post' : 'Posting'}
+            </button>
           </div>
         </div>
       </div>

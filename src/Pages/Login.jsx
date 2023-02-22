@@ -5,7 +5,7 @@ import googleIcon from '../componets/login/g.jpg';
 import {signInWithEmailAndPassword, signInWithPopup} from 'firebase/auth';
 import {auth, provider} from '../firebase';
 
-const Login = () => {
+const Login = ({isLoading, setIsloading}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -13,8 +13,10 @@ const Login = () => {
   //login with email and password
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
       await signInWithEmailAndPassword(auth, email, password);
+      setIsloading(true);
       navigate('/');
     } catch (err) {
       console.error(err);
@@ -53,14 +55,16 @@ const Login = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button onClick={handleSubmit}>Login</button>
+        <button onClick={handleSubmit}>
+          {!isLoading ? 'Login' : 'Logging in'}
+        </button>
         <p>or</p>
         <button onClick={SignInWithgoogle} className='googleBtn'>
-        <div className="googleBtnDiv">
-            <div className="icon">
-              <img src={ googleIcon} alt="" />
+          <div className='googleBtnDiv'>
+            <div className='icon'>
+              <img src={googleIcon} alt='' />
             </div>
-            <div className="googleText">
+            <div className='googleText'>
               <p>Sign in with google</p>
             </div>
           </div>

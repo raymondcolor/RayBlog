@@ -5,7 +5,16 @@
     flex-direction: column;
     width: 350px;
     margin: 0 15px 30px 15px;
+    transition: 0.6s;
 
+    &:hover {
+        margin-top: -2px;
+    }
+
+    a {
+        text-decoration: none;
+
+    }
 
     .blogImage {
         width: 350px;
@@ -22,6 +31,7 @@
         }
     }
 
+
     .blogTittle {
         height: 60px;
 
@@ -30,6 +40,7 @@
         h1 {
             font-size: 20px;
             overflow: hidden;
+            color: rgb(57, 57, 57);
             text-overflow: ellipsis;
             display: -webkit-box;
             -webkit-line-clamp: 2;

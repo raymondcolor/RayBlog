@@ -13,15 +13,17 @@ const Home = (props) => {
       <NavBar setShow={props.setShow} />
       <Header />
       <BlogSection>
-        {blogList.map((blog) => {
+        {blogList.map((blog, index) => {
           return (
             <Blog
-              authorName={blog.authur.name}
-              authorProfile={blog.authur.photoURL}
-              title={blog.title}
-              sampleText={blog.post}
-              datePosted={blog.createdAt.date}
-              coverImage={blog.downloadURL}
+              key={index}
+              authorName={blog?.authur?.name}
+              authorProfile={blog?.authur?.photoURL}
+              title={blog?.title}
+              sampleText={blog?.post}
+              // datePosted={blog?.createdAt.date}
+              coverImage={blog?.downloadURL}
+              to={`/blog/${blog.id}`}
             />
           );
         })}
