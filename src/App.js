@@ -42,7 +42,7 @@ function App() {
             }
           />
           <Route path='/myblogs' element={<MyBlogs setShow={setShow} />} />
-          <Route path='/blog' element={<ViewBlog />} />
+          <Route path='/blog' element={<ViewBlog setShow={setShow}/>} />
           <Route path='*' element={<PageNotFound />} />
         </Routes>
       </Router>
