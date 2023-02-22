@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './input.scss'
+import SearchIcon from '@mui/icons-material/Search';
 
 const SearchInput = () => {
   const [keyword, setKeyword] = useState('');
@@ -12,7 +13,7 @@ const SearchInput = () => {
         value={keyword}
         onChange={(e) => setKeyword(e.target.value)}
       />
-      <button>Search</button>
+      <button><SearchIcon className='icon'/></button>
     </div>
   );
 };

@@ -17,7 +17,9 @@
     a {
         color: $TextLight;
         text-decoration: none;
-        &:hover{
+        transition: 0.6s;
+
+        &:hover {
             color: rgb(147, 147, 147);
             font-weight: 600;
             margin-bottom: -10px;
@@ -49,6 +51,13 @@
             color: $TextLight;
             font-size: 16px;
             cursor: pointer;
+            transition: 0.6s;
+
+            &:hover {
+                color: rgb(147, 147, 147);
+                font-weight: 600;
+                margin-bottom: -10px;
+            }
         }
 
     }

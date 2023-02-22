@@ -20,20 +20,29 @@ const MyBlogs = ({setShow}) => {
     <div>
       <NavBar setShow={setShow} />
       <Header />
-      <BlogSection>
-        {currentUserBlogs.map((blog) => {
-          return (
-            <Blog
-              authorName={blog.authur.name}
-              authorProfile={blog.authur.photoURL}
-              title={blog.title}
-              sampleText={blog.post}
-              datePosted={blog.createdAt.date}
-              coverImage={blog.downloadURL}
-            />
-          );
-        })}
-      </BlogSection>
+      {currentUserBlogs.length === 0 ? (
+        <div className='noBlogDiv'>
+          <div>
+            <p>No Blogs Yet</p>
+            <span>Click the add button to publish a blog</span>
+          </div>
+        </div>
+      ) : (
+        <BlogSection>
+          {currentUserBlogs.map((blog) => {
+            return (
+              <Blog
+                authorName={blog.authur.name}
+                authorProfile={blog.authur.photoURL}
+                title={blog.title}
+                sampleText={blog.post}
+                // datePosted={blog.createdAt[0]}
+                coverImage={blog.downloadURL}
+              />
+            );
+          })}
+        </BlogSection>
+      )}
     </div>
   );
 };

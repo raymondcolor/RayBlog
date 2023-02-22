@@ -1,8 +1,8 @@
-import React, {useContext, useState} from 'react';
+import React, {useState} from 'react';
 import './App.scss';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Home from './Pages/Home';
-import Error from './Pages/Error';
+import PageNotFound from './Pages/PageNotFound';
 import Login from './Pages/Login';
 import SignUp from './Pages/SignUp';
 import ViewBlog from './Pages/ViewBlog';
@@ -17,7 +17,7 @@ function App() {
       {show ? <LogOutModal setShow={setShow} /> : null}
       <Router>
         <Routes>
-          <Route path='*' element={<Error />} />
+          <Route path='*' element={<PageNotFound />} />
           <Route path='/' element={<Home setShow={setShow} />} />
           <Route element={<ProtectedRoutes />}>
             <Route path='/login' element={<Login />} />

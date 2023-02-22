@@ -25,9 +25,11 @@ const NavBar = (props) => {
               }}>
               log out
             </button>
-            <div className='navProfile'>
-              <img src={currentUser.photoURL} alt='' />
-            </div>
+            <Link to={'/myblogs'}>
+              <div className='navProfile'>
+                <img src={currentUser.photoURL} alt='' />
+              </div>
+            </Link>
           </div>
         ) : (
           <div className='menu'>
