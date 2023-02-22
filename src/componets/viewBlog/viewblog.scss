@@ -51,3 +51,62 @@
         }
     }
 }
+
+.blogBody {
+    width: 100%;
+    height: auto;
+
+    .blogCoverPhoto {
+        width: 55%;
+        height: 300px;
+        margin: -8vh auto 0 auto;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+    }
+
+    .blogContent {
+        width: 55%;
+        height: auto;
+        margin: 30px auto;
+        overflow: hidden;
+
+        .auhorDetails {
+            display: flex;
+
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+
+            .authorImage {
+                height: 50px;
+                width: 50px;
+                border-radius: 50%;
+                overflow: hidden;
+
+
+                img {
+                    height: auto;
+                    width: 100%;
+                    object-fit: cover;
+
+                }
+
+
+            }
+
+            p {
+                color: #4d4d4d;
+            }
+
+            span {
+                font-size: 12px;
+                color: #4d4d4d;
+            }
+        }
+    }
+}

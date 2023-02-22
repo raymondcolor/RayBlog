@@ -10,6 +10,7 @@ import {ProtectedRoutes} from './protectedRoutes/ProtectedRoutes';
 import MyBlogs from './Pages/MyBlogs';
 import CreateBlog from './Pages/CreateBlog';
 import LogOutModal from './componets/modals/LogOutModal';
+
 function App() {
   //state for showing and hinding a logout popu
   const [show, setShow] = useState(false);
@@ -42,7 +43,7 @@ function App() {
             }
           />
           <Route path='/myblogs' element={<MyBlogs setShow={setShow} />} />
-          <Route path='/blog' element={<ViewBlog setShow={setShow}/>} />
+          <Route path='/blog/:id' element={<ViewBlog setShow={setShow} />} />
           <Route path='*' element={<PageNotFound />} />
         </Routes>
       </Router>
