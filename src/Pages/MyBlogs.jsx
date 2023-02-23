@@ -5,6 +5,8 @@ import NavBar from '../componets/navBar/NavBar';
 import Header from '../componets/myBlogs/Header';
 import {BlogContext} from '../context/BlogContextProvider';
 import {AuthContext} from '../context/AuthContextProvider';
+import {deleteDoc, doc} from 'firebase/firestore';
+import {db} from '../firebase';
 
 const MyBlogs = ({setShow}) => {
   const {blogList} = useContext(BlogContext);
@@ -15,6 +17,21 @@ const MyBlogs = ({setShow}) => {
   const currentUserBlogs = blogList.filter(
     (blog) => blog?.authur?.id === currentUser.uid,
   );
+
+  //deleting a blog
+  //in order for any user not to delete any blog
+  //the delete button is shown on to the current user
+  //and only on blogs he create. this logic is in the reusable blog componet
+  const deleteBlog = async (id) => {
+    const blogDoc = doc(db, 'blogs', id);
+    await deleteDoc(blogDoc);
+  };
+
+  const handleDelete = (id) => {
+    return async () => {
+      await deleteBlog(id);
+    };
+  };
 
   return (
     <div>
@@ -29,17 +46,18 @@ const MyBlogs = ({setShow}) => {
         </div>
       ) : (
         <BlogSection>
-          {currentUserBlogs.map((blog,index) => {
+          {currentUserBlogs.map((blog, index) => {
             return (
               <Blog
                 key={index}
-                authorName={blog?.authur?.name}
-                authorProfile={blog?.authur?.photoURL}
+                authorName={blog?.author?.name}
+                authorProfile={blog?.author?.photoURL}
                 title={blog?.title}
                 sampleText={blog?.post}
                 // datePosted={blog.createdAt[0]}
-                coverImage={blog?.downloadURL}
+                coverImage={blog?.coverPhoto}
                 to={`/blog/${blog.id}`}
+                onClick={handleDelete(blog.id)}
               />
             );
           })}

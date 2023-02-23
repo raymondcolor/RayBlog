@@ -29,9 +29,9 @@ const CreateBlof = ({setShow, isloading, setIsloading}) => {
         await addDoc(PostCollectionRef, {
           category,
           title,
-          downloadURL,
+          coverPhoto: downloadURL,
           post,
-          authur: {
+          author: {
             name: currentUser.displayName,
             id: currentUser.uid,
             photoURL: currentUser.photoURL,
@@ -53,7 +53,9 @@ const CreateBlof = ({setShow, isloading, setIsloading}) => {
             <h1>Create Post</h1>
           </div>
           <div className='formBody'>
-            <select onChange={(e) => setCategory(e.target.value)}>
+            <select
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}>
               <option value='Design'>Design</option>
               <option value='Health'>Health</option>
               <option value='Software'>Software</option>

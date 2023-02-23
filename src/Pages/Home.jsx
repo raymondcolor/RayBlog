@@ -17,12 +17,12 @@ const Home = (props) => {
           return (
             <Blog
               key={index}
-              authorName={blog?.authur?.name}
-              authorProfile={blog?.authur?.photoURL}
+              authorName={blog?.author?.name}
+              authorProfile={blog?.author?.photoURL}
               title={blog?.title}
               sampleText={blog?.post}
               // datePosted={blog?.createdAt.date}
-              coverImage={blog?.downloadURL}
+              coverImage={blog?.coverPhoto}
               to={`/blog/${blog.id}`}
             />
           );

@@ -1,6 +1,7 @@
 @import '../../App.scss';
 
 .blogContainer {
+    position: relative;
     display: flex;
     flex-direction: column;
     width: 350px;
@@ -9,6 +10,22 @@
 
     &:hover {
         margin-top: -2px;
+    }
+
+    .deleteBtn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+
+        button {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            .icon{
+                color: rgb(183, 40, 40);
+                font-size: 29px;
+            }
+        }
     }
 
     a {

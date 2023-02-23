@@ -8,10 +8,10 @@ const Header = ({blog}) => {
         <h1>{blog?.title}</h1>
         <div className='auhorDetails'>
           <div className='authorImage'>
-            <img src={blog?.authur?.photoURL} alt='' />
+            <img src={blog?.author?.photoURL} alt='' />
           </div>
           <div>
-            <p>By: {blog?.authur?.name}</p>
+            <p>By: {blog?.author?.name}</p>
             <span>12/2/2023</span>
           </div>
         </div>
