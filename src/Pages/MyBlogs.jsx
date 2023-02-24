@@ -3,6 +3,7 @@ import Blog from '../componets/blog/Blog';
 import BlogSection from '../componets/blogsection/BlogSection';
 import NavBar from '../componets/navBar/NavBar';
 import Header from '../componets/myBlogs/Header';
+import {Delete} from '@mui/icons-material';
 import {BlogContext} from '../context/BlogContextProvider';
 import {AuthContext} from '../context/AuthContextProvider';
 import {deleteDoc, doc} from 'firebase/firestore';
@@ -15,7 +16,7 @@ const MyBlogs = ({setShow}) => {
   //filtering blogs that are only related
   // or where posted by the currentUser / loggedin
   const currentUserBlogs = blogList.filter(
-    (blog) => blog?.authur?.id === currentUser.uid,
+    (blog) => blog?.author?.id === currentUser.uid,
   );
 
   //deleting a blog
@@ -48,17 +49,23 @@ const MyBlogs = ({setShow}) => {
         <BlogSection>
           {currentUserBlogs.map((blog, index) => {
             return (
-              <Blog
-                key={index}
-                authorName={blog?.author?.name}
-                authorProfile={blog?.author?.photoURL}
-                title={blog?.title}
-                sampleText={blog?.post}
-                // datePosted={blog.createdAt[0]}
-                coverImage={blog?.coverPhoto}
-                to={`/blog/${blog.id}`}
-                onClick={handleDelete(blog.id)}
-              />
+              <div className='mainblogContainer'>
+                <div className='deleteBtn'>
+                  <button onClick={handleDelete(blog.id)}>
+                    <Delete className='icon' />
+                  </button>
+                </div>
+                <Blog
+                  key={index}
+                  authorName={blog?.author?.name}
+                  authorProfile={blog?.author?.photoURL}
+                  title={blog?.title}
+                  sampleText={blog?.post}
+                  // datePosted={blog.createdAt[0]}
+                  coverImage={blog?.coverPhoto}
+                  to={`/blog/${blog.id}`}
+                />
+              </div>
             );
           })}
         </BlogSection>
