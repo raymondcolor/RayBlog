@@ -71,13 +71,13 @@ const Login = ({isLoading, setIsloading}) => {
         </button>
         <div className='Footer'>
           <p>
-            Hvae no account yet?
+            Have no account yet?
             <Link to={'/signup'}>
               <span>Create account</span>
             </Link>
           </p>
           <p>
-            Return to
+            Return to:
             <Link to={'/'}>
               <span>home</span>
             </Link>

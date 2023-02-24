@@ -8,6 +8,12 @@
     margin: 0 15px 30px 15px;
     transition: 0.6s;
 
+    @include mobile {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+
     &:hover {
         margin-top: -2px;
     }
@@ -21,7 +27,8 @@
             background: transparent;
             border: none;
             cursor: pointer;
-            .icon{
+
+            .icon {
                 color: rgb(183, 40, 40);
                 font-size: 29px;
             }
@@ -39,6 +46,11 @@
         border-radius: 5px;
         overflow: hidden;
         object-fit: cover;
+
+        @include mobile {
+            width: 100%;
+        }
+
 
         img {
             width: 100%;

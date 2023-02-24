@@ -103,7 +103,7 @@ const SignUp = () => {
             </Link>
           </p>
           <p>
-            Return to
+            Return to:
             <Link to={'/'}>
               <span>home</span>
             </Link>

@@ -1,5 +1,5 @@
 import {Delete} from '@mui/icons-material';
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import {Link} from 'react-router-dom';
 import './blog.scss';
 import {BlogContext} from '../../context/BlogContextProvider';
@@ -18,7 +18,7 @@ const Blog = ({
   const {currentUser} = useContext(AuthContext);
   const {blogList} = useContext(BlogContext);
 
-  const blog = blogList.map((blog) => blog);
+  const blog = blogList.filter((blog) => blog);
 
   const showDeleteButton = currentUser && blog?.author?.id === currentUser.uid;
 

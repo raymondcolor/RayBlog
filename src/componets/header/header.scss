@@ -5,7 +5,12 @@
     align-items: center;
     justify-content: center;
     background-color: $darkBG;
-    height: 70vh;
+    height: 60vh;
+
+    @include mobile {
+        height: 75vh;
+        padding: 20px;
+    }
 
     .headerSection {
         display: flex;
@@ -17,7 +22,11 @@
     h1 {
         color: $TextLight;
         font-size: 50px;
+        text-align: center;
 
+        @include mobile {
+            font-size: 27px;
+        }
     }
 
     p {
@@ -25,6 +34,10 @@
         color: $TextLight;
         font-size: 16px;
         margin: 20px 0;
+        
+        @include mobile {
+            font-size: 14px;
+        }
     }
 
 }

@@ -7,6 +7,11 @@
   align-items: center;
   justify-content: center;
 
+  @include mobile {
+    height: auto;
+    padding: 20px;
+  }
+
   .Form {
     width: 30%;
     height: auto;
@@ -15,10 +20,19 @@
     gap: 10px;
     padding: 20px;
 
+    @include mobile {
+      width: 80%;
+      gap: 8px;
+    }
+
     h1 {
       font-size: 39px;
       text-align: center;
       color: rgb(75, 75, 75);
+
+      @include mobile {
+        font-size: 27px;
+      }
 
       span {
         color: $darkBG;
@@ -30,6 +44,10 @@
       text-align: center;
       color: rgb(75, 75, 75);
       margin-bottom: 20px;
+
+      @include mobile {
+        font-size: 17px;
+      }
     }
 
     label {
@@ -42,6 +60,10 @@
       align-items: center;
       justify-content: center;
       border-radius: 5px;
+
+      @include mobile {
+        font-size: 11px;
+      }
     }
 
     input {
@@ -53,6 +75,11 @@
       font-size: 15px;
       border-radius: 5px;
       border: 1px solid rgb(75, 75, 75);
+
+      @include mobile {
+        font-size: 14px;
+        height: 40px;
+      }
     }
 
     button {
@@ -63,6 +90,10 @@
       border-radius: 5px;
       transition: 0.6s;
       cursor: pointer;
+
+      @include mobile {
+        height: 43px;
+      }
 
       &:hover {
         background-color: $btnHover;
@@ -77,6 +108,10 @@
       border-radius: 40px;
       cursor: pointer;
 
+      @include mobile {
+        height: 43px;
+      }
+
       .googleBtnDiv {
         display: flex;
         flex-direction: row;
@@ -89,6 +124,13 @@
             height: 40px;
             width: 40px;
             margin-top: 5px;
+
+            @include mobile {
+             margin-top: 4px;
+             height: 35px;
+             width: 35px;
+            }
+
           }
         }
 
@@ -107,6 +149,9 @@
 
       p {
         text-align: center;
+        @include mobile {
+          font-size: 14px;
+         }
       }
     }
   }

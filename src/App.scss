@@ -31,3 +31,8 @@ $darkBG:#2D56CE;
 $TextLight: #fff;
 $btnHover:#4d79ff;
 
+@mixin mobile {
+    @media screen and (max-width:480px) {
+        @content;
+    }
+}
