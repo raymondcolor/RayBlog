@@ -82,6 +82,9 @@
                 font-size: 16px;
                 cursor: pointer;
                 transition: 0.6s;
+                @include mobile{
+                    margin: 5px 0;
+                }
 
                 &:hover {
                     color: rgb(147, 147, 147);

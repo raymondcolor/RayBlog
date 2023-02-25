@@ -7,13 +7,25 @@
     justify-content: center;
     align-items: center;
 
+    @include mobile {
+        height: 75vh;
+    }
+
     .headerContent {
         width: 55vw;
+
+        @include mobile {
+            width: 80vw;
+        }
 
         h1 {
             text-align: center;
             color: #fff;
             font-size: 29px;
+
+            @include mobile {
+                font-size: 19px;
+            }
         }
 
         .auhorDetails {
@@ -29,6 +41,11 @@
                 border-radius: 50%;
                 overflow: hidden;
 
+                @include mobile {
+                    width: 30px;
+                    height: 30px;
+                }
+
 
                 img {
                     height: auto;
@@ -42,11 +59,19 @@
 
             p {
                 color: #fff;
+
+                @include mobile {
+                    font-size: 12px;
+                }
             }
 
             span {
                 font-size: 12px;
                 color: #fff;
+
+                @include mobile {
+                    font-size: 10px;
+                }
             }
         }
     }
@@ -62,6 +87,11 @@
         margin: -8vh auto 0 auto;
         overflow: hidden;
 
+        @include mobile {
+            width: 80%;
+            margin: -65px auto 0 auto;
+        }
+
         img {
             width: 100%;
             height: auto;
@@ -74,6 +104,16 @@
         height: auto;
         margin: 30px auto;
         overflow: hidden;
+
+        @include mobile {
+            width: 90%;
+        }
+
+        p {
+            @include mobile {
+                font-size: 14px;
+            }
+        }
 
         .auhorDetails {
             display: flex;
@@ -88,6 +128,11 @@
                 border-radius: 50%;
                 overflow: hidden;
 
+                @include mobile {
+                    height: 30px;
+                    width: 30px;
+                }
+
 
                 img {
                     height: auto;
@@ -101,11 +146,19 @@
 
             p {
                 color: #4d4d4d;
+
+                @include mobile {
+                    font-size: 12px;
+                }
             }
 
             span {
                 font-size: 12px;
                 color: #4d4d4d;
+
+                @include mobile {
+                    font-size: 10px;
+                }
             }
         }
     }

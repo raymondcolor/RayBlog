@@ -38,6 +38,9 @@ const MyBlogs = ({setShow}) => {
     <div>
       <NavBar setShow={setShow} />
       <Header />
+      <div className="title">
+      <h1>My Blogs ({currentUserBlogs.length})</h1>
+      </div>
       {currentUserBlogs.length === 0 ? (
         <div className='noBlogDiv'>
           <div>
