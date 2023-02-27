@@ -23,7 +23,20 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element={<Home setShow={setShow} />} />
+
+          <Route path='/blog/:id' element={<ViewBlog setShow={setShow} />} />
           <Route element={<ProtectedRoutes />}>
+            <Route
+              path='/createblog'
+              element={
+                <CreateBlog
+                  setShow={setShow}
+                  isLoading={isLoading}
+                  setIsloading={setIsloading}
+                />
+              }
+            />
+            <Route path='/myblogs' element={<MyBlogs setShow={setShow} />} />
             <Route
               path='/login'
               element={
@@ -32,18 +45,7 @@ function App() {
             />
             <Route path='/signup' element={<SignUp />} />
           </Route>
-          <Route
-            path='/createblog'
-            element={
-              <CreateBlog
-                setShow={setShow}
-                isLoading={isLoading}
-                setIsloading={setIsloading}
-              />
-            }
-          />
-          <Route path='/myblogs' element={<MyBlogs setShow={setShow} />} />
-          <Route path='/blog/:id' element={<ViewBlog setShow={setShow} />} />
+
           <Route path='*' element={<PageNotFound />} />
         </Routes>
       </Router>
