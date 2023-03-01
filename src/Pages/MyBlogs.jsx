@@ -12,7 +12,7 @@ import {db} from '../firebase';
 const MyBlogs = ({setShow}) => {
   const {blogList} = useContext(BlogContext);
   const {currentUser} = useContext(AuthContext);
-  console.log(blogList);
+
   //filtering blogs that are only related
   // or where posted by the currentUser / loggedin
   const currentUserBlogs = blogList.filter(
@@ -38,8 +38,8 @@ const MyBlogs = ({setShow}) => {
     <div>
       <NavBar setShow={setShow} />
       <Header />
-      <div className="title">
-      <h1>My Blogs ({currentUserBlogs.length})</h1>
+      <div className='title'>
+        <h1>My Blogs ({currentUserBlogs.length})</h1>
       </div>
       {currentUserBlogs.length === 0 ? (
         <div className='noBlogDiv'>
@@ -52,14 +52,13 @@ const MyBlogs = ({setShow}) => {
         <BlogSection>
           {currentUserBlogs.map((blog, index) => {
             return (
-              <div className='mainblogContainer'>
+              <div key={index} className='mainblogContainer'>
                 <div className='deleteBtn'>
                   <button onClick={handleDelete(blog.id)}>
                     <Delete className='icon' />
                   </button>
                 </div>
                 <Blog
-                  key={index}
                   authorName={blog?.author?.name}
                   authorProfile={blog?.author?.photoURL}
                   title={blog?.title}

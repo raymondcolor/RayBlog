@@ -6,14 +6,16 @@ import reportWebVitals from './reportWebVitals';
 import {AuthContextProvider} from './context/AuthContextProvider';
 import {BlogContextProvider} from './context/BlogContextProvider';
 import {LogOutModalContextProvider} from './context/LogOutModalContextProvider';
-
+import {SearchContextProvider} from './context/SearchContextProvider';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <AuthContextProvider>
       <BlogContextProvider>
         <LogOutModalContextProvider>
-          <App />
+          <SearchContextProvider>
+            <App />
+          </SearchContextProvider>
         </LogOutModalContextProvider>
       </BlogContextProvider>
     </AuthContextProvider>

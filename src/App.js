@@ -23,28 +23,28 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element={<Home setShow={setShow} />} />
+          <Route
+            path='/createblog'
+            element={
+              <CreateBlog
+                setShow={setShow}
+                isLoading={isLoading}
+                setIsloading={setIsloading}
+              />
+            }
+          />
+          <Route path='/myblogs' element={<MyBlogs setShow={setShow} />} />
 
           <Route path='/blog/:id' element={<ViewBlog setShow={setShow} />} />
           <Route element={<ProtectedRoutes />}>
             <Route
-              path='/createblog'
+              path='/login'
               element={
-                <CreateBlog
-                  setShow={setShow}
-                  isLoading={isLoading}
-                  setIsloading={setIsloading}
-                />
+                <Login isLoading={isLoading} setIsloading={setIsloading} />
               }
             />
-            <Route path='/myblogs' element={<MyBlogs setShow={setShow} />} />
+            <Route path='/signup' element={<SignUp />} />
           </Route>
-          <Route
-            path='/login'
-            element={
-              <Login isLoading={isLoading} setIsloading={setIsloading} />
-            }
-          />
-          <Route path='/signup' element={<SignUp />} />
 
           <Route path='*' element={<PageNotFound />} />
         </Routes>
