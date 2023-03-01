@@ -56,6 +56,7 @@ const CreateBlof = ({setShow, isloading, setIsloading}) => {
             <select
               value={category}
               onChange={(e) => setCategory(e.target.value)}>
+              <option>choose category</option>
               <option value='Design'>Design</option>
               <option value='Health'>Health</option>
               <option value='Software'>Software</option>

@@ -22,7 +22,7 @@ const Home = (props) => {
             if (keyword === '') {
               return blog;
             } else if (
-              blog.category.toLowerCase().includes(keyword.toLowerCase())
+              blog.title.toLowerCase().includes(keyword.toLowerCase())
             ) {
               return blog;
             }
