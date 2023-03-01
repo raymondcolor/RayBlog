@@ -37,14 +37,14 @@ function App() {
               }
             />
             <Route path='/myblogs' element={<MyBlogs setShow={setShow} />} />
-            <Route
-              path='/login'
-              element={
-                <Login isLoading={isLoading} setIsloading={setIsloading} />
-              }
-            />
-            <Route path='/signup' element={<SignUp />} />
           </Route>
+          <Route
+            path='/login'
+            element={
+              <Login isLoading={isLoading} setIsloading={setIsloading} />
+            }
+          />
+          <Route path='/signup' element={<SignUp />} />
 
           <Route path='*' element={<PageNotFound />} />
         </Routes>
