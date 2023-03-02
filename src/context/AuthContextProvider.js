@@ -1,23 +1,27 @@
-import React, {createContext, useState, useEffect} from 'react';
-
+import React, {createContext} from 'react';
+import {useQuery} from '@tanstack/react-query';
 import {onAuthStateChanged} from 'firebase/auth';
 import {auth} from '../firebase';
 
 export const AuthContext = createContext();
 export const AuthContextProvider = ({children}) => {
-  const [currentUser, setCurrentUser] = useState(false);
-
-  useEffect(() => {
-    const unsub = onAuthStateChanged(auth, async (user) => {
-      setCurrentUser(user);
+  //geting user state
+  const {data: currentUser, isLoading} = useQuery(['currentUser'], async () => {
+    return new Promise((resolve, reject) => {
+      const unsub = onAuthStateChanged(
+        auth,
+        (user) => {
+          resolve(user);
+          unsub();
+        },
+        reject,
+      );
     });
-    return () => {
-      unsub();
-    };
-  }, []);
+  });
+  console.log(currentUser);
 
   return (
-    <AuthContext.Provider value={{currentUser}}>
+    <AuthContext.Provider value={{currentUser, isLoading}}>
       {children}
     </AuthContext.Provider>
   );
