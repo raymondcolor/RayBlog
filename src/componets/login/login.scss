@@ -8,8 +8,9 @@
   justify-content: center;
 
   @include mobile {
-    height: auto;
-    padding: 20px;
+    height: 100vh;
+    padding: 15px;
+    
   }
 
   .Form {
@@ -21,7 +22,7 @@
     padding: 20px;
 
     @include mobile {
-      width: 80%;
+      width: 100%;
       gap: 8px;
     }
 
