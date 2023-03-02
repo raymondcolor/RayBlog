@@ -36,16 +36,14 @@ const Home = (props) => {
               })
               .map((blog, index) => {
                 return (
-                  <Link to={`/blog/${blog.id}`}>
+                  <Link to={`/blog/${blog.id}`} key={index}>
                     <Blog
-                      key={index}
                       authorName={blog?.author?.name}
                       authorProfile={blog?.author?.photoURL}
                       title={blog?.title}
                       sampleText={blog?.post}
                       // datePosted={blog?.createdAt.date}
                       coverImage={blog?.coverPhoto}
-                      to={`/blog/${blog.id}`}
                     />
                   </Link>
                 );

@@ -3,9 +3,10 @@ import './nav.scss';
 import {Link} from 'react-router-dom';
 import {AuthContext} from '../../context/AuthContextProvider';
 import {Close, Menu} from '@mui/icons-material';
+import avator from '../images/a.jpg';
 
 const NavBar = (props) => {
-  const {currentUser} = useContext(AuthContext);
+  const {currentUser, isLoading} = useContext(AuthContext);
 
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
@@ -31,7 +32,11 @@ const NavBar = (props) => {
             </button>
             <Link to={'/myblogs'}>
               <div className='navProfile'>
-                <img src={currentUser.photoURL} alt='' />
+                {isLoading ? (
+                  <img src={avator} alt='' />
+                ) : (
+                  <img src={currentUser.photoURL} alt='' />
+                )}
               </div>
             </Link>
           </div>
