@@ -20,6 +20,7 @@ function App() {
   return (
     <div>
       {show ? <LogOutModal setShow={setShow} /> : null}
+
       <Router>
         <Routes>
           <Route path='/' element={<Home setShow={setShow} />} />

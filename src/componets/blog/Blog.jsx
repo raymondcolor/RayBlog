@@ -1,5 +1,4 @@
-
-import {Link} from 'react-router-dom';
+import React from 'react';
 import './blog.scss';
 
 const Blog = ({
@@ -10,22 +9,20 @@ const Blog = ({
   authorProfile,
   datePosted,
   to,
-
 }) => {
   return (
     <div>
       <div className='blogContainer'>
-        <Link to={to}>
-          <div className='blogImage'>
-            <img src={coverImage} alt='' />
-          </div>
-          <div className='blogTittle'>
-            <h1>{title}</h1>
-          </div>
-          <div className='sampleContent'>
-            <p>{sampleText}</p>
-          </div>
-        </Link>
+        <div className='blogImage'>
+          <img src={coverImage} alt='' />
+        </div>
+        <div className='blogTittle'>
+          <h1>{title}</h1>
+        </div>
+        <div className='sampleContent'>
+          <p>{sampleText}</p>
+        </div>
+
         <div className='author'>
           <div className='profile'>
             <div className='pic'>
