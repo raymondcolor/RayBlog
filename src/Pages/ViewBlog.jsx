@@ -13,7 +13,7 @@ const ViewBlog = ({setShow}) => {
   useEffect(() => {
     //loookign for ablog from bloglist that has the same
     //id as the one from params
-    let Nblog = blogList.find((blog) => blog.id === id);
+    let Nblog = blogList?.find((blog) => blog?.id === id);
     if (Nblog) {
       //if it was found, we set it to the blog state variable
       setBlog(Nblog);

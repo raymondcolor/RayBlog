@@ -8,7 +8,7 @@
     align-items: center;
 
     @include mobile {
-        height: 75vh;
+        height: 65vh;
     }
 
     .headerContent {
@@ -90,6 +90,7 @@
         @include mobile {
             width: 80%;
             margin: -65px auto 0 auto;
+            height: 200px;
         }
 
         img {
